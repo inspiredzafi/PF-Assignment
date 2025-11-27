@@ -45,6 +45,7 @@ public static int displayExercises() {
     while (currentIndex < totalExercises) {
         // Clear console
         clearConsole();
+        scanner.nextLine();         // Clears the buffere in the second and following iterations. If not here. The program terminates with an error of Invalid choice! 
         
         System.out.println("--- Programming Exercises ---");
         
