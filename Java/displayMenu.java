@@ -54,7 +54,7 @@ public static int displayExercises() {
         
         // Display exercises for current page
         for (int i = currentIndex; i < endIndex; i++) {
-            System.out.println((i + 1) + ". " + EXERCISES[i]);
+            System.out.println(EXERCISES[i]);
         }
         
         System.out.println("\n------------------------------------------------");
