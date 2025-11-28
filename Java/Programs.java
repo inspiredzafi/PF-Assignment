@@ -8,20 +8,27 @@ public class Programs {
     public static void main(String arg[]) {
 
         int choice = displayMenu.displayExercises();
+        do{
 
-        // Configuration for calling methods dynamically.   // Reflection😁
-        String methodName = "problem" + choice;
-        try {
+            
+            // Configuration for calling methods dynamically.   // Reflection😁
+            String methodName = "problem" + choice;
+            try {
+                
+                Method method = Programs.class.getMethod(methodName); // This line needs to be handled properly. Warna error day rhi.
+                
+                method.invoke(null);      // Sai Boss wali feeling arhi.
+                System.out.print("\nPress Enter to continue....");
 
-            Method method = Programs.class.getMethod(methodName); // This line needs to be handled properly. Warna error day rhi.
+                scanner.nextLine();     // Waits for the user to press Enter to display the menu again
+            } catch (Exception e) {
+                
+                System.out.println("Error agya bhai, dubara enter kr choice!");
+            }
 
-            method.invoke(null);      // Sai Boss wali feeling arhi.
-        } catch (Exception e) {
-
-            System.out.println("Error agya bhai, dubara enter kr choice!");
-        }
-
-        System.out.println("Invalid Choice!");
+            choice = displayMenu.displayExercises();
+            
+        }while(choice != 0);
     }
 
     /*
@@ -93,7 +100,7 @@ public class Programs {
         System.out.println("Enter the value for a: ");
         a = scanner.nextInt();
 
-        System.out.println("Enter the value for a: ");
+        System.out.println("Enter the value for b: ");
         b = scanner.nextInt();
 
         // Calculating the sum and product of a and b
@@ -104,6 +111,8 @@ public class Programs {
 
         System.out.println("The sum of " + a + " and " + b + " is " + sum + ".");
         System.out.println("The Product of " + a + " and " + b + " is " + product + ".");
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -127,6 +136,8 @@ public class Programs {
         // Printing the age in months
 
         System.out.println("Your age in months is " + months);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -167,6 +178,9 @@ public class Programs {
         System.out.println("The Total of the marks is " + Total);
         System.out.println("The Average of the marks is " + Average);
 
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
+
     }
 
     /*
@@ -183,7 +197,7 @@ public class Programs {
         float tempC;
 
         // Getting temperature in Fahrenheit from user.
-        System.out.println("Enter your Roll NO: ");
+        System.out.println("Enter temperature in Fahrenheit: ");
         tempF = scanner.nextFloat();
 
         // Calculating temperature in Celcius.
@@ -192,6 +206,8 @@ public class Programs {
 
         // Printing the temperature in Celcius.
         System.out.println("Temperature in Degree Centigrade is: " + tempC);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -230,6 +246,9 @@ public class Programs {
         // Printing the largest number on the screen.
 
         System.out.println("The largest number of " + a + ", " + b + ", " + c + ", and " + d + " is " + max);
+
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -290,7 +309,7 @@ public class Programs {
         System.out.println("Enter the radius of the cylinder: ");
         R = scanner.nextFloat();
 
-        System.out.println("Enter the radius of the cylinder: ");
+        System.out.println("Enter the height of the cylinder: ");
         H = scanner.nextFloat();
 
         // Calculating the Volume
@@ -299,6 +318,8 @@ public class Programs {
         // Printing the Volume of the cylinder.
 
         System.out.println("The Volume of the cylinder is " + Volume);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -331,6 +352,8 @@ public class Programs {
 
         System.out.println("The Area of the Circle is " + Area);
 
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
+
     }
 
     /*
@@ -357,6 +380,8 @@ public class Programs {
 
         System.out.println(mm + " milimeters in inches are " + inches);
 
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
     }
 
     /*
@@ -387,6 +412,8 @@ public class Programs {
 
         System.out.println("The Value of a: " + a);
         System.out.println("The Value of b: " + b);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -423,7 +450,7 @@ public class Programs {
 
         float decimal = number - integral; // This would seperate the decimal i.e. 0.58971
 
-        System.out.println("The whole part of " + number + "is" + integral + " and the decimal part is " + decimal);
+        System.out.println("The whole part of " + number + " is " + integral + " and the decimal part is " + decimal);
 
     }
 
@@ -441,16 +468,18 @@ public class Programs {
         float a = 2f; // We're not asked to get this.
 
         // Get 'vi' and 't' from the user.
-        System.out.println("Enter the 'vi' : ");
+        System.out.println("Enter the 'vi' (m/s) : ");
         vi = scanner.nextInt();
 
-        System.out.println("Enter the 't' : ");
+        System.out.println("Enter the 't' (sec) : ");
         t = scanner.nextInt();
 
         // Calculating Distance 'S'
         S = vi * t * (1 / 2f) * a * (t * t);
 
-        System.out.println("The covered Distance 'S' is " + S);
+        System.out.println("The covered Distance 'S' (in meters) is " + S);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -471,8 +500,8 @@ public class Programs {
         // Calculating the age in days
         int days = months * 30;
 
-        System.out.println("Your age in Months is" + months);
-        System.out.println("Your age in Days is" + days);
+        System.out.println("Your age in Months is " + months);
+        System.out.println("Your age in Days is " + days);
     }
 
     /*
@@ -531,7 +560,7 @@ public class Programs {
         height = scanner.nextFloat();
 
         System.out.println("What is your gender? (M or F)");
-        temp = scanner.next();
+        temp = scanner.next();          // Reads a string until it encounters a white space. WE can say one "Word".
 
         gender = temp.charAt(0);
 
@@ -541,6 +570,8 @@ public class Programs {
         System.out.println("Age: " + age);
         System.out.println("Height: " + height);
         System.out.println("Gender: " + gender);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -574,6 +605,8 @@ public class Programs {
 
         System.out.println("The Area of the Circle is " + Area);
         System.out.println("The Circumference of the Circle is " + Circum);
+
+        scanner.nextLine();     // When a string input succeeds an integer input. It automatically gets triggered when the user presses enter. So that's why there are two checks to avoid screen flickers one inside the problem and one in the main function.
 
     }
 
@@ -620,6 +653,7 @@ public class Programs {
         System.out.println("The Total of the obtained marks is " + obtMarks);
         System.out.println("The Average of the marks is " + Average);
 
+        scanner.nextLine();     // It is exactly similar to getch() in C/CPP
     }
 
     /*
@@ -656,6 +690,10 @@ public class Programs {
 
         System.out.println("The Area of the Triangle is " + Area);
 
+        
+        scanner.nextLine();     // It is exactly similar to getch() in C/CPP
+
+
     }
 
     /*
@@ -691,6 +729,8 @@ public class Programs {
 
         System.out.printf("The time %d:%d:%d in seconds is %d", hours, mins, secs, timeInSeconds);
 
+        scanner.nextLine();     // It is exactly similar to getch() in C/CPP
+
     }
 
     /*
@@ -713,6 +753,8 @@ public class Programs {
 
         System.out.printf("The Discriminat is %.2f", disc);
 
+        scanner.nextLine();     // It is exactly similar to getch() in C/CPP
+
     }
 
     /*
@@ -728,6 +770,7 @@ public class Programs {
         if (n > 100)
             System.out.println("Hello bro! The entered value is greater than 100.");
 
+        scanner.nextLine();     // It is exactly similar to getch() in C/CPP
     }
 
     /*
@@ -745,6 +788,7 @@ public class Programs {
         else
             System.out.println(n + " is an Odd number.");
 
+        scanner.nextLine();
     }
 
 }

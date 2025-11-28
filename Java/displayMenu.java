@@ -45,7 +45,7 @@ public static int displayExercises() {
     while (currentIndex < totalExercises) {
         // Clear console
         clearConsole();
-        scanner.nextLine();         // Clears the buffere in the second and following iterations. If not here. The program terminates with an error of Invalid choice! 
+        // scanner.nextLine();         // Clears the buffere in the second and following iterations. If not here. The program terminates with an error of Invalid choice! 
         
         System.out.println("--- Programming Exercises ---");
         
@@ -59,7 +59,7 @@ public static int displayExercises() {
         }
         
         System.out.println("\n------------------------------------------------");
-        System.out.print("Enter 'n' for next page, or a number (1-" + displayedProblems + ") to execute: ");
+        System.out.print("Enter 'n' for next page, or a number (choice) to execute: ");
         
         String input = scanner.nextLine().trim();
         
@@ -74,7 +74,7 @@ public static int displayExercises() {
             int choice = Integer.parseInt(input);
             
             // Check if choice is within the currently displayed range
-            if (choice >= 1 && choice <= displayedProblems) {
+            if (choice >= 1 && choice <= 30) {
                 return choice;
                 
             } else {
@@ -85,7 +85,6 @@ public static int displayExercises() {
             // Invalid input - move to next page
             currentIndex += exercisesPerPage;
         }
-        scanner.close();
     }
     
     System.out.println("\nEnd of exercises list.");
